@@ -238,14 +238,14 @@ def main():
     if outfile_path is None:
         outfile_path = infile_path.with_suffix(".xml")
 
-    if outfile_path.exists():
-        overwrite = input(f"Output file {outfile_path} exists, overwrite? (y/N) ").lower()
-        while overwrite not in {"y", "n", ""}:
+        if outfile_path.exists():
             overwrite = input(f"Output file {outfile_path} exists, overwrite? (y/N) ").lower()
+            while overwrite not in {"y", "n", ""}:
+                overwrite = input(f"Output file {outfile_path} exists, overwrite? (y/N) ").lower()
 
-        if overwrite != "y":
-            print("Not overwriting output, nothing to do!")
-            return
+            if overwrite != "y":
+                print("Not overwriting output, nothing to do!")
+                return
 
     infile = open(infile_path, "rb")
     outfile = open(outfile_path, "wb")
