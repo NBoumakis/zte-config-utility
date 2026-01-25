@@ -24,8 +24,8 @@ def main():
 
     infile_path: pathlib.Path = args.infile
     outfile_path: pathlib.Path = args.outfile
-        outfile_path = infile_path.with_suffix(".xml")
     if outfile_path is None:
+        outfile_path = infile_path.with_suffix(".zlib")
 
     if outfile_path.exists():
         overwrite = input(f"Output file {outfile_path} exists, overwrite? (y/N) ").lower()
